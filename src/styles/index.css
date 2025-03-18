@@ -1,0 +1,110 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/Montserrat-Light.woff2") format("woff2");
+    font-display: swap;
+    font-style: normal;
+    font-weight: 300;
+}
+@font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/Montserrat-Regular.woff2") format("woff2");
+    font-display: swap;
+    font-style: normal;
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/Montserrat-Medium.woff2") format("woff2");
+    font-display: swap;
+    font-style: normal;
+    font-weight: 500;
+}
+@font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/Montserrat-Semibold.woff2") format("woff2");
+    font-display: swap;
+    font-style: normal;
+    font-weight: 600;
+}
+
+:root {
+    --color-dark: #252525;
+    --color-blue: #002E6D;
+    --color-red: #D31E27;
+    --color-light-gray: #FBFBFB;
+    --color-search-gray: #F7F7F7;  
+
+    --fz-s: 12px;
+    --fz-m: 16px;
+    --fz-l: 18px;
+    --fz-xl: 24px;
+    --fz-title: 60px;
+
+    --br-radius-m: 8px;
+
+    --transition-duration: 0.3s;
+}
+
+/*COMMON CLASSES*/
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.title {
+    font-size: var(--fz-title);
+    line-height: 1;
+    margin-bottom: 0.53em;
+    color: var(--color-dark)
+}
+.c-blue {
+    color: var(--color-blue)
+}
+
+.bg-lt-search {
+    background-color: var(--color-search-gray);
+}
+.bradius-m {
+    border-radius: var(--br-radius-m);
+}
+/*COMMON CLASSES END*/
+
+body {
+    font-family: "Montserrat", sans-serif;
+}
+button { 
+    background-color: transparent;
+}
+main {
+    min-height: 100vh;
+    overflow-y: hidden;
+    display: flex;
+}
+
+.sidebar {
+    max-width: 410px;
+    transition-duration: var(--transition-duration);
+    transition-property: width;
+    background-color: lightblue;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 30px 100px;
+}
+
+.content-header-top {
+    margin-bottom: 15px;
+}
+
+.content-notes-button {
+    align-items: center;
+}
