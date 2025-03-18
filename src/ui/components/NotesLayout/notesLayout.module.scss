@@ -1,0 +1,14 @@
+.layout {
+    padding-top: 20px;
+    .count {
+        margin-bottom: 15px;
+        display: inline-block;
+    }
+    .list {
+        list-style: none;
+        padding-left: 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+}

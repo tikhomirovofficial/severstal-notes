@@ -1,0 +1,23 @@
+.card {
+    border: 1px solid transparent;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.03);
+    .name {
+        font-weight: 500;
+        line-height: 1;
+        margin-bottom: 0.5em;
+    }
+    .info {
+        display: flex;
+        align-items: center;
+        column-gap: 15px;
+        .item {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            span {
+                opacity: 0.8;
+            }
+        }
+    }
+}

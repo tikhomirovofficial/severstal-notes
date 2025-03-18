@@ -2,6 +2,7 @@ import './styles/reset.css'
 import './styles/App.css'
 import { useState } from 'react'
 import { NotesHeader } from './ui/components/NotesHeader'
+import { Main } from './ui/pages/Main'
 
 
 
@@ -16,7 +17,9 @@ function App() {
       </aside>
       <section className='content'>
         <NotesHeader />
+        <Main />
       </section>
+
     </>
   )
 }

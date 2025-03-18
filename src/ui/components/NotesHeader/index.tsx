@@ -6,7 +6,7 @@ import styles from './notesHeader.module.scss'
 export const NotesHeader = () => {
     return (
         <header className={styles.header}>
-            <div className="content-header-top">
+            <div className={styles.top}>
                 <span>👋 Добрый вечер!</span>
             </div>
             <h1 className={`title content-title`}>Все заметки</h1>
