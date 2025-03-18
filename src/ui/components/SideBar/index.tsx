@@ -6,6 +6,7 @@ import { addFileIcon, addFolderIcon, sideBarIcon } from '../../icons'
 import { ExplorerItem } from './ExplorerItem'
 
 
+
 export const SideBar = () => {
     const [opened, setOpened] = useState(true)
     return (
@@ -19,15 +20,10 @@ export const SideBar = () => {
             <Search />
             <div className={styles.explorer}>
                 <header className={styles.explorerHeader}>
-                    <span className='fz-m c-blue'>Все заметки</span>
-                    <div className={styles.buttons}>
-                        <button type="button">
-                            <img src={addFileIcon} height={18} width={18} alt="" />
-                        </button>
-                        <button type="button">
-                            <img src={addFolderIcon} height={18} width={23} alt="" />
-                        </button>
-                    </div>
+                    <button type="button">
+                        <img src={addFileIcon} height={18} width={18} alt="" />
+
+                    </button>
                 </header>
                 <div className={styles.listWrapper}>
                     <ul className={`${styles.list}`}>
