@@ -3,18 +3,15 @@ import './styles/App.css'
 import { useState } from 'react'
 import { NotesHeader } from './ui/components/NotesHeader'
 import { Main } from './ui/pages/Main'
+import { SideBar } from './ui/components/SideBar'
 
 
 
 function App() {
-  const [opened, setOpened] = useState(true)
-
 
   return (
     <>
-      <aside style={{ width: opened ? "100%" : 0 }} className='sidebar'>
-
-      </aside>
+      <SideBar/>
       <section className='content'>
         <NotesHeader />
         <Main />

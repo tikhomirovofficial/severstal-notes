@@ -1,17 +1,11 @@
 main {
     min-height: 100vh;
+    max-height: 100vh;
     overflow-y: hidden;
     display: flex;
 }
 
-.sidebar {
-    max-width: 350px;
-    transition-duration: var(--transition-duration);
-    transition-property: width;
-    background-color: lightblue;
-}
-
 .content {
     flex-grow: 1;
-    padding: 30px 80px;
+    padding: 30px 60px;
 }

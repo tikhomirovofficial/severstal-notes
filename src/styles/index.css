@@ -41,6 +41,7 @@
     --fz-xl: 24px;
     --fz-title: 54px;
 
+    --br-radius-s: 6px;
     --br-radius-m: 8px;
     --br-radius-l: 12px;
 
@@ -93,8 +94,12 @@ input[type="search"]::-webkit-search-results-decoration {
     color: var(--color-gray);
 }
 
+
 .bg-lt-search {
     background-color: var(--color-search-gray);
+}
+.bradius-s {
+    border-radius: var(--br-radius-s);
 }
 .bradius-m {
     border-radius: var(--br-radius-m);

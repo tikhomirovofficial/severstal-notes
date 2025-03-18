@@ -1,6 +1,25 @@
 .header {
+    padding-left: 15px;
     .top {
         margin-bottom: 15px;
+    }
+    .filterSearch {
+        display: flex;
+        gap: 8px;
+        align-items: flex-end;
+        max-width: 500px;
+        width: 100%;
+        justify-content: flex-end;
+    }
+    .filter {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+        gap: 5px;
+        font-size: 14px;
+        span {
+            min-width: 130px;
+        }
     }
     .notesBar {
         display: flex;

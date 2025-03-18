@@ -1,0 +1,18 @@
+.item { 
+    transition: .2s background;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 8px;
+    .left {
+        display: flex;
+        align-items: flex-end;
+        gap: 5px;
+        span {
+            line-height: 1.4;
+        }
+    }
+    &:hover {
+        background-color: #F8F8F8;
+    }
+    .count {}
+}
