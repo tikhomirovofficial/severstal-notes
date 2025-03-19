@@ -32,3 +32,19 @@
         border-radius: 8px;
     }
 }
+@media (max-width: 1050px) {
+    .layout {
+        .list {
+            padding-bottom: 100px;
+            gap: 10px;
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .layout {
+        .top {
+            margin-bottom: 5px;
+        }
+    }
+}

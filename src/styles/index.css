@@ -29,11 +29,11 @@
 
 :root {
     --color-dark: #252525;
-    --color-blue: #002E6D;
-    --color-red: #D31E27;
-    --color-light-gray: #FBFBFB;
-    --color-search-gray: #F7F7F7;  
-    --color-gray: #8F8F8F;
+    --color-blue: #002e6d;
+    --color-red: #d31e27;
+    --color-light-gray: #fbfbfb;
+    --color-search-gray: #f7f7f7;
+    --color-gray: #8f8f8f;
 
     --fz-s: 12px;
     --fz-m: 16px;
@@ -45,14 +45,14 @@
     --br-radius-m: 8px;
     --br-radius-l: 12px;
 
-    --transition-duration: 0.3s;
+    --transition-duration: 0.5s;
 }
 
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
-	-webkit-appearance:none;
+    -webkit-appearance: none;
 }
 
 /*COMMON CLASSES*/
@@ -73,7 +73,7 @@ input[type="search"]::-webkit-search-results-decoration {
     font-size: clamp(36px, 2.8vw, var(--fz-title));
     line-height: 1;
     margin-bottom: 0.2em;
-    color: var(--color-dark)
+    color: var(--color-dark);
 }
 .fz-s {
     font-size: var(--fz-s);
@@ -88,12 +88,11 @@ input[type="search"]::-webkit-search-results-decoration {
     font-size: var(--fz-xl);
 }
 .c-blue {
-    color: var(--color-blue)
+    color: var(--color-blue);
 }
 .c-gray {
     color: var(--color-gray);
 }
-
 
 .bg-lt-search {
     background-color: var(--color-search-gray);
@@ -112,6 +111,11 @@ input[type="search"]::-webkit-search-results-decoration {
 body {
     font-family: "Montserrat", sans-serif;
 }
-button { 
+button {
     background-color: transparent;
+}
+@media (max-width: 640px) {
+    .title {
+        font-size: clamp(26px, 6vw, var(--fz-title));
+    }
 }

@@ -7,21 +7,33 @@ import { SideBar } from './ui/components/SideBar'
 import { sideBarIcon } from './ui/icons'
 import { NoteWindow } from './ui/components/NoteWindow'
 import { useAppDispatch, useAppSelector } from './app/hooks'
-import { setMobileMode, toggleSideBarOpened } from './app/features/main/mainSlice'
-import { MOBILE_FROM_WIDTH } from './config/settings'
+import { setMobileMode, setTabletMode, toggleSideBarOpened } from './app/features/main/mainSlice'
+import { MOBILE_START_WIDTH, TABLET_START_WIDTH } from './config/settings'
+import { BottomNav } from './ui/components/BottomNav'
 
 
 
 function App() {
   const dispatch = useAppDispatch()
-  const { sidebarOpened, mobileMode } = useAppSelector(state => state.main)
+  const { sidebarOpened, mobileMode, tabletMode } = useAppSelector(state => state.main)
+
+
 
   const optimizedHandleMobileMode = useCallback(() => {
     let calls = 0;
 
     return () => {
-      const neededMobile = window.screen.width <= MOBILE_FROM_WIDTH
+      const neededTablet = window.screen.width <= TABLET_START_WIDTH
+      const neededMobile = window.screen.width <= MOBILE_START_WIDTH
+
       if (!calls) {
+        if (neededTablet && !tabletMode) {
+          dispatch(setTabletMode(true));
+          calls++;
+        } else if (!neededTablet && tabletMode) {
+          dispatch(setTabletMode(false));
+          calls++;
+        }
         if (neededMobile && !mobileMode) {
           dispatch(setMobileMode(true));
           calls++;
@@ -31,7 +43,7 @@ function App() {
         }
       }
     }
-  }, [mobileMode])
+  }, [tabletMode, mobileMode])
 
 
 
@@ -39,17 +51,17 @@ function App() {
     const handleMobileMode = optimizedHandleMobileMode()
     handleMobileMode()
     window.addEventListener("resize", handleMobileMode)
-  }, [mobileMode])
+  }, [mobileMode, tabletMode])
 
   const openSideBar = () => dispatch(toggleSideBarOpened())
 
   return (
     <>
-      <SideBar opened={sidebarOpened} />
+      {!tabletMode ? <SideBar opened={sidebarOpened} /> : null}
       <section className='content'>
         <NoteWindow />
         {
-          !sidebarOpened ?
+          !sidebarOpened && !tabletMode ?
             <button onClick={openSideBar} type='button' className='content-sidebar-button'>
               <img src={sideBarIcon} height={22} width={22} alt="" />
             </button>
@@ -57,6 +69,8 @@ function App() {
         }
         <NotesHeader />
         <Main />
+        {tabletMode ? <BottomNav /> : null}
+
       </section>
 
     </>

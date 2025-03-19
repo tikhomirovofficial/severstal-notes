@@ -28,3 +28,21 @@ main {
     top: 10%;
     z-index: 20;
 }
+
+@media (max-width: 1050px) {
+    .content {
+        padding: 30px;
+    } 
+}
+@media (max-width: 850px) {
+    .content {
+        padding: 20px;
+        padding-left: 5px;
+    } 
+}
+@media (max-width: 450px) {
+    .content {
+        padding: 20px 15px;
+        padding-left: 0;
+    } 
+}

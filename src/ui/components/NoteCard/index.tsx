@@ -5,7 +5,7 @@ import { categoryIcon, copyIcon, refreshIcon } from '../../icons'
 export const NoteCard = () => {
     return (
         <article className={`bradius-l ${styles.card}`}>
-            <input className={`fz-xl ${styles.name}`} value={"Какая-то заметка аоывд оадвы алодывао дывола оывда ыволда выдо ыво олвы аодывод ывоао дываод ывода оывдао ывод ыовд"} />
+            <input className={`fz-xl ${styles.name}`} value={"Заметка без названия"} />
             <div className={`c-blue ${styles.info}`}>
                 <div title={"Последнее обновление 17.03.2025"} className={styles.item}>
                     <img src={refreshIcon} height={16} width={16} alt="" />
@@ -25,16 +25,11 @@ export const NoteCard = () => {
                         </svg>
 
                     </button>
-
                 </div>
                 <button type="button" className={`${styles.copyBtn}`}>
                     <img src={copyIcon} height={16} width={16} alt="" />
                 </button>
-
-
-
             </div>
-
         </article>
     )
 }
