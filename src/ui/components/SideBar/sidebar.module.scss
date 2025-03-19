@@ -18,6 +18,9 @@
         justify-content: space-between;
         align-items: center;
         margin-bottom: 25px;
+        > img:first-child {
+            min-width: 220px;
+        }
         * {
             flex-shrink: 0;
         }

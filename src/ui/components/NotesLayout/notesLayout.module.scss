@@ -46,5 +46,13 @@
         .top {
             margin-bottom: 5px;
         }
+        .list {
+            padding-bottom: 50px;
+            display: flex;
+            flex-direction: column;
+        }
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 }

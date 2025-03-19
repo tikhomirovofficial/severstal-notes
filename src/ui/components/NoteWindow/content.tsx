@@ -1,12 +1,20 @@
 import React from 'react'
 import styles from './noteWindow.module.scss'
 import { refreshIcon, categoryIcon, arrowLeftIcon } from '../../icons'
+import { useAppDispatch } from '../../../app/hooks'
+import { toggleWindowOpened } from '../../../app/features/current-note/currentNoteSlice'
 
 export const NoteWindowContent = () => {
+    const dispatch = useAppDispatch()
+
+    const closeWindow = () => {
+        dispatch(toggleWindowOpened())
+
+    }
     return (
         <section className={styles.content}>
             <header className={styles.header}>
-                <button  className={`c-blue fz-l ${styles.back}`}>
+                <button onClick={closeWindow} className={`c-blue fz-l ${styles.back}`}>
                     <img src={arrowLeftIcon} alt="" />
                     <span>Назад к заметкам</span>
                 </button>
@@ -21,7 +29,7 @@ export const NoteWindowContent = () => {
                         <span className='fz-m'>432 Символа</span>
                     </div>
                 </div>
-                <span className={`c-gray`}>Создано: 15.03.2025</span>
+                <span className={`c-gray ${styles.created}`}>Создано: 15.03.2025</span>
             </header>
             <div className={styles.noteWrapper}>
                 <textarea className='fz-l' name="" id="" placeholder='Напишите что-нибудь...'>

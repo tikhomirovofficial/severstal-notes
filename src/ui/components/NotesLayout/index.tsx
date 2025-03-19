@@ -4,6 +4,7 @@ import { NoteCard } from '../NoteCard'
 import { filterIcon } from '../../icons'
 import { NoteElementMini } from '../NoteCard/mobile'
 import { useAppSelector } from '../../../app/hooks'
+import { NULL } from 'sass'
 
 
 export const NotesLayout = () => {
@@ -15,7 +16,7 @@ export const NotesLayout = () => {
             </div>
             <ul className={styles.list}>
                 {
-                    Array(10).map(item => (
+                    Array(20).fill(NULL).map(item => (
                         <li>
                             {mobileMode ? <NoteElementMini /> : <NoteCard />}
                         </li>
