@@ -1,0 +1,121 @@
+.window {
+    position: absolute;
+    top: 150vh;
+    padding: 50px;
+    padding-left: 60px;
+    width: 100%;
+    background-color: white;
+    min-height: 100vh;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    box-shadow: 20px 0 15px rgba(0, 0, 0, 0.122);
+    transition: top 0.6s;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+    display: flex;
+}
+.windowOpened {
+    top: 0px;
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    .header {
+        margin-bottom: 10px;
+        .back {
+            display: flex;
+            align-items: center;
+            column-gap: 8px;
+        }
+        .title {
+            display: block;
+            width: 100%;
+            font-size: clamp(30px, 2.5vw, 48px);
+            font-weight: 500;
+        }
+        .info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 8px;
+            .item {
+                display: flex;
+                align-items: center;
+                column-gap: 5px;
+            }
+        }
+        .delete {
+            color: var(--color-red);
+        }
+        
+    }
+    .noteWrapper {
+        position: relative;
+        flex-grow: 1;
+        textarea {
+            position: absolute;
+            top: 0;
+            inset: 0;
+            line-height: 1.8;
+            resize: none;
+            &::-webkit-scrollbar {
+                width: 4px;
+                background-color: rgb(255, 255, 255);
+            }
+            &::-webkit-scrollbar-thumb {
+                background-color: rgba(218, 218, 218, 0.404);
+                border-radius: 8px;
+            }
+        }
+    }
+}
+@media (max-width: 1050px) {
+    .window {
+        padding: 30px;
+    }
+}
+@media (max-width: 640px) {
+    .window {
+        padding: 20px;
+        .header {
+            .back {
+                font-size: 16px;
+                img {
+                    height: 16px;
+                }
+            }
+            .title {
+                font-size: clamp(24px, 2.5vw, 48px);
+            }
+        }
+        .info {
+            .item span {
+                font-size: 13px;
+            }
+        }
+        .created {
+            font-size: 13px;
+        }
+        textarea {
+            font-size: 16px;
+        }
+    }
+}
+@media (max-width: 450px) {
+    .window {
+        padding: 15px;
+        .header {
+            .back {
+                font-size: 14px;
+                margin-bottom: 10px;
+                img {
+                    height: 14px;
+                }
+            }
+        }
+    }
+}

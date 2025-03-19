@@ -1,0 +1,35 @@
+.item {
+    transition: 0.2s background;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 5px 8px;
+
+    input {
+        background-color: transparent;
+        width: 100%;
+        max-width: calc(100% - 25px);
+    }
+    .delete {
+        transition:
+            0.5s visibility,
+            0.5s opacity;
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        aspect-ratio: 1;
+        height: 100%;
+        top: 0;
+        right: 0;
+        img {
+            opacity: 0.8;
+        }
+    }
+    &:hover {
+        background-color: #f8f8f8;
+        .delete {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}

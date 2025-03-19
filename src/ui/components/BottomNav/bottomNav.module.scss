@@ -1,0 +1,24 @@
+.bottomNav {
+    padding: 24px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #f1f1f1;
+    z-index: 15;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+@media (max-width: 450px) {
+    .bottomNav {
+        padding: 15px;
+        button {
+            font-size: 16px;
+        }
+        img {
+            height: 17px;
+        }
+    }
+}
