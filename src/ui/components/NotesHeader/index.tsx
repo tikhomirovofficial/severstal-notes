@@ -13,7 +13,7 @@ export const NotesHeader = () => {
             <div className={styles.notesBar}>
                 <div className={styles.buttons}>
                     <TextButton>
-                        <img src={unfilledFileIcon} height={23} width={22} alt="" />
+                        <img src={unfilledFileIcon} height={18} width={18} alt="" />
                         Создать заметку
                     </TextButton>
                     {/* <TextButton>

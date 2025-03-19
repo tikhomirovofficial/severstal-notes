@@ -9,9 +9,7 @@ export const NotesLayout = () => {
         <div className={`${styles.layout}`}>
             <div className={styles.top}>
                 <span className={`c-gray fz-s ${styles.count}`}>Всего заметок: 121</span>
-                
             </div>
-
             <ul className={styles.list}>
                 <li>
                     <NoteCard />

@@ -1,3 +1,6 @@
+body::-webkit-scrollbar {
+    display: none;
+}
 main {
     min-height: 100vh;
     max-height: 100vh;
@@ -11,7 +14,7 @@ main {
     position: relative;
 }
 .content-sidebar-button {
-    height: 45px;
+    height: 40px;
     aspect-ratio: 1;
     border-radius: 15px;
     border-top-left-radius: 0;
@@ -19,8 +22,9 @@ main {
     align-items: center;
     justify-content: center;
     border-bottom-left-radius: 0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     position: absolute;
     left: 0;
     top: 10%;
+    z-index: 20;
 }

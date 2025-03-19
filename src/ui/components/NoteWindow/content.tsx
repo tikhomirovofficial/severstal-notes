@@ -8,7 +8,7 @@ export const NoteWindowContent = () => {
             <header className={styles.header}>
                 <button  className={`c-blue fz-l ${styles.back}`}>
                     <img src={arrowLeftIcon} alt="" />
-                    <span>Назад</span>
+                    <span>Назад к заметкам</span>
                 </button>
                 <input type="text" className={`title ${styles.title}`} value={"Текущая заметка"} />
                 <div className={`c-blue ${styles.info}`}>

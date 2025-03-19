@@ -4,7 +4,7 @@ import { NoteWindowContent } from './content'
 
 export const NoteWindow = () => {
   return (
-    <div className={`${styles.window} ${styles.windowOpened}`}>
+    <div className={`${styles.window}`}>
         <NoteWindowContent/>
     </div>
   )

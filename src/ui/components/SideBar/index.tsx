@@ -1,31 +1,39 @@
-import React, { useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import styles from './sidebar.module.scss'
 import { Search } from '../Search'
 import logoImg from '../../../assets/logo.png'
-import { addFileIcon, addFolderIcon, sideBarIcon } from '../../icons'
+import { addFileIcon, sideBarIcon } from '../../icons'
 import { ExplorerItem } from './ExplorerItem'
 import { TextButton } from '../TextButton'
+import { useAppDispatch } from '../../../app/hooks'
+import { toggleSideBarOpened } from '../../../app/features/main/mainSlice'
+import { SideBarProps } from './types'
 
 
 
-export const SideBar = () => {
-    const [opened, setOpened] = useState(true)
-    const [visible, setVisible] = useState(true)
+export const SideBar: FC<SideBarProps> = ({ opened }) => {
+    const dispatch = useAppDispatch()
+    const [contentVisible, setContentVisible] = useState(true)
 
-    const close = () => {
-        setOpened(false)
-        setTimeout(() => {
-            setVisible(false)
-        }, 150)
-    }
+    const closeSideBar = () => dispatch(toggleSideBarOpened())
+
+    useEffect(() => {
+        if (opened) {
+            setContentVisible(true)
+        } else {
+            setTimeout(() => {
+                setContentVisible(false)
+            }, 150)
+        }
+    }, [opened])
 
     return (
-        <aside style={{width: opened ? "100%" : 0 }} className={styles.sidebar}>
-            {visible ?
+        <aside style={{ width: opened ? "100%" : 0 }} className={styles.sidebar}>
+            {contentVisible ?
                 <div className={styles.sidebarWrapper}>
                     <header className={styles.header}>
                         <img src={logoImg} height={26} width={220} alt="Логотип" loading='lazy' />
-                        <button type='button' onClick={close}>
+                        <button type='button' onClick={closeSideBar}>
                             <img src={sideBarIcon} height={18} width={25} alt="" />
                         </button>
                     </header>

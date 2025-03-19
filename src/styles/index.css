@@ -70,7 +70,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .title {
-    font-size: var(--fz-title);
+    font-size: clamp(36px, 2.8vw, var(--fz-title));
     line-height: 1;
     margin-bottom: 0.2em;
     color: var(--color-dark)

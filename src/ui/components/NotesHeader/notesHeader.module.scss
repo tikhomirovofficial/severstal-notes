@@ -25,11 +25,32 @@
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
+        gap: 15px;
+        flex-wrap: wrap;
         padding-bottom: 15px;
         border-bottom: 1px solid #f1f1f1;
         .buttons {
             display: flex;
             column-gap: 32px;
+            font-size: 14px;
+        }
+    }
+}
+@media (max-width: 1160px) {
+    .header {
+        .filterSearch {
+            flex-direction: row-reverse;
+            align-items: unset;
+            flex-grow: 1;
+            max-width: unset;
+            justify-content: space-between;
+            
+        }
+        .notesBar {
+            flex-direction: column;
+            align-items: unset;
+            gap: 10px;
+            margin-top: 20px;
         }
     }
 }
