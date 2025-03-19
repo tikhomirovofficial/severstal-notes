@@ -4,10 +4,10 @@ import { NoteWindowContent } from './content'
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
 
 export const NoteWindow = () => {
-    const { windowOpened } = useAppSelector(state => state.currentNote)
+    const { noteOpened } = useAppSelector(state => state.notes)
     return (
-        <div className={`${styles.window} ${windowOpened ? styles.windowOpened : ""}`}>
-            {windowOpened ? <NoteWindowContent /> : null}
+        <div className={`${styles.window} ${noteOpened ? styles.windowOpened : ""}`}>
+            {noteOpened ? <NoteWindowContent /> : null}
         </div>
     )
 }

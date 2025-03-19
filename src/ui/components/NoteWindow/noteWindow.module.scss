@@ -48,6 +48,10 @@
                 column-gap: 5px;
             }
         }
+        .delete {
+            color: var(--color-red);
+        }
+        
     }
     .noteWrapper {
         position: relative;

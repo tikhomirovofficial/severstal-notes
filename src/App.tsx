@@ -10,13 +10,15 @@ import { useAppDispatch, useAppSelector } from './app/hooks'
 import { setMobileMode, setTabletMode, toggleSideBarOpened } from './app/features/main/mainSlice'
 import { MOBILE_START_WIDTH, TABLET_START_WIDTH } from './config/settings'
 import { BottomNav } from './ui/components/BottomNav'
+import { addToStorage } from './utils/localStorageManager'
+import { addNote } from './app/features/notes/notesSlice'
 
 
 
 function App() {
   const dispatch = useAppDispatch()
   const { sidebarOpened, mobileMode, tabletMode } = useAppSelector(state => state.main)
-
+  const { items } = useAppSelector(state => state.notes)
 
 
   const optimizedHandleMobileMode = useCallback(() => {
@@ -52,6 +54,10 @@ function App() {
     handleMobileMode()
     window.addEventListener("resize", handleMobileMode)
   }, [mobileMode, tabletMode])
+
+  useEffect(() => {
+    addToStorage("notes", items)
+  }, [items])
 
   const openSideBar = () => dispatch(toggleSideBarOpened())
 

@@ -1,24 +1,23 @@
-import React from 'react'
 import styles from './noteslayout.module.scss'
 import { NoteCard } from '../NoteCard'
-import { filterIcon } from '../../icons'
 import { NoteElementMini } from '../NoteCard/mobile'
 import { useAppSelector } from '../../../app/hooks'
-import { NULL } from 'sass'
 
 
 export const NotesLayout = () => {
     const { mobileMode } = useAppSelector(state => state.main)
+    const { items } = useAppSelector(state => state.notes)
+
     return (
         <div className={`${styles.layout}`}>
             <div className={styles.top}>
-                <span className={`c-gray fz-s ${styles.count}`}>Всего заметок: 121</span>
+                <span className={`c-gray fz-s ${styles.count}`}>Всего заметок: {items.length}</span>
             </div>
             <ul className={styles.list}>
                 {
-                    Array(20).fill(NULL).map(item => (
-                        <li>
-                            {mobileMode ? <NoteElementMini /> : <NoteCard />}
+                    items.map(note => (
+                        <li key={note.id}>
+                            {mobileMode ? <NoteElementMini {...note} /> : <NoteCard {...note} />}
                         </li>
                     ))
                 }

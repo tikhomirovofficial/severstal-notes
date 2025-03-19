@@ -1,4 +1,3 @@
+import { Note } from "../../../../types/entities";
 
-export type ExplorerItemProps = {
-    
-}
+export type ExplorerItemProps = Pick<Note, "id" | "name">

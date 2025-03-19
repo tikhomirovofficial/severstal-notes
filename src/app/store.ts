@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit"
 import { mainReducer } from "./features/main/mainSlice"
-import { currentNoteReducer } from "./features/current-note/currentNoteSlice"
+import { notesReducer } from "./features/notes/notesSlice"
 
 export const store = configureStore({
     reducer: {
         main: mainReducer,
-        currentNote: currentNoteReducer
+        notes: notesReducer,
     }
 })
 

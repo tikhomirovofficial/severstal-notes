@@ -1,12 +1,19 @@
-import { useAppSelector } from '../../../app/hooks'
+import { useAppDispatch, useAppSelector } from '../../../app/hooks'
 import { filterIcon, unfilledFileIcon } from '../../icons'
 import { Search } from '../Search'
 import { TextButton } from '../TextButton'
 import styles from './notesHeader.module.scss'
 import logoImg from '../../../assets/logo.png'
+import { addNote } from '../../../app/features/notes/notesSlice'
 
 export const NotesHeader = () => {
+    const dispatch = useAppDispatch()
     const { tabletMode } = useAppSelector(state => state.main)
+
+    const createNote = () => {
+        dispatch(addNote())
+    }
+
     return (
         <header className={styles.header}>
             <div className={styles.top}>
@@ -21,7 +28,7 @@ export const NotesHeader = () => {
                 {
                     !tabletMode ?
                         <div className={styles.buttons}>
-                            <TextButton>
+                            <TextButton onClick={createNote}>
                                 <img src={unfilledFileIcon} height={18} width={18} alt="" />
                                 Создать заметку
                             </TextButton>
