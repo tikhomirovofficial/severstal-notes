@@ -1,4 +1,4 @@
-import { FC, MouseEvent, useState } from 'react'
+import { FC, MouseEvent, useEffect, useState } from 'react'
 import styles from './noteCard.module.scss'
 import { categoryIcon, copyIcon, refreshIcon } from '../../icons'
 import { useAppDispatch } from '../../../app/hooks'
@@ -30,6 +30,10 @@ export const NoteCard: FC<NoteCardProps> = (props) => {
         e.stopPropagation()
         dispatch(deleteNote(props.id))
     }
+
+    useEffect(() => {
+        setNoteName(props.name)
+    }, [props.name])
 
     return (
         <article onClick={openNoteWindow} className={`bradius-l ${styles.card}`}>

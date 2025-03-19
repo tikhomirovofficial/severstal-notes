@@ -1,4 +1,4 @@
-import { FC, useState, MouseEvent } from 'react'
+import { FC, useState, MouseEvent, useEffect } from 'react'
 import styles from './explorerItem.module.scss'
 import { ExplorerItemProps } from './types'
 import { closeIcon } from '../../../icons'
@@ -30,6 +30,10 @@ export const ExplorerItem: FC<ExplorerItemProps> = (props) => {
         e.stopPropagation()
         dispatch(deleteNote(props.id))
     }
+
+    useEffect(() => {
+        setNoteName(props.name)
+    }, [props.name])
 
     return (
         <li onClick={openNoteWindow} className={`bradius-s ${styles.item}`}>

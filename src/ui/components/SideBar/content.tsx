@@ -7,6 +7,7 @@ import { TextButton } from '../TextButton'
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
 import { toggleSideBarOpened } from '../../../app/features/main/mainSlice'
 import { addNote } from '../../../app/features/notes/notesSlice'
+import { useEffect } from 'react'
 
 export const SideBarContent = () => {
     const dispatch = useAppDispatch()
@@ -17,6 +18,11 @@ export const SideBarContent = () => {
     }
 
     const closeSideBar = () => dispatch(toggleSideBarOpened())
+
+    useEffect(() => {
+        console.log(items);
+        
+    }, [items])
 
 
     return (
