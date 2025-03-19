@@ -31,5 +31,5 @@ export const mainSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { toggleSideBarOpened, setTabletMode, setMobileMode} = mainSlice.actions
+export const { toggleSideBarOpened, setTabletMode, setMobileMode } = mainSlice.actions
 export const mainReducer = mainSlice.reducer

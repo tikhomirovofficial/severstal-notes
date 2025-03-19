@@ -7,23 +7,21 @@ import { TextButton } from '../TextButton'
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
 import { toggleSideBarOpened } from '../../../app/features/main/mainSlice'
 import { addNote } from '../../../app/features/notes/notesSlice'
-import { useEffect } from 'react'
+import { setSidebarSearchValue } from '../../../app/features/search/searchSlice'
 
 export const SideBarContent = () => {
     const dispatch = useAppDispatch()
     const { items } = useAppSelector(state => state.notes)
+    const { sidebar_search_val } = useAppSelector(state => state.search)
+
+    const lowerSideBarSearch = sidebar_search_val.toLowerCase()
+    const searchedNotes = items.filter(note => note.name.toLocaleLowerCase().includes(lowerSideBarSearch))
 
     const createNote = () => {
         dispatch(addNote())
     }
 
     const closeSideBar = () => dispatch(toggleSideBarOpened())
-
-    useEffect(() => {
-        console.log(items);
-        
-    }, [items])
-
 
     return (
         <div className={styles.sidebarWrapper}>
@@ -33,7 +31,7 @@ export const SideBarContent = () => {
                     <img src={sideBarIcon} height={18} width={25} alt="" />
                 </button>
             </header>
-            <Search />
+            <Search value={sidebar_search_val} onChange={e => dispatch(setSidebarSearchValue(e.target.value))} />
             <div className={styles.explorer}>
                 <header className={styles.explorerHeader}>
                     <TextButton onClick={createNote} className={`c-blue fz-s`}>
@@ -42,13 +40,15 @@ export const SideBarContent = () => {
                     </TextButton>
                 </header>
                 <div className={styles.listWrapper}>
-                    <ul className={`${styles.list}`}>
-                        {items.map(item => (
-                            <ExplorerItem key={item.id} {...item} />
-                        ))}
-                    </ul>
+                    {!searchedNotes.length ?
+                        <span className='fz-s c-gray'>Ничего не найдено...</span> :
+                        <ul className={`${styles.list}`}>
+                            {searchedNotes.map(item => (
+                                <ExplorerItem key={item.id} {...item} />
+                            ))}
+                        </ul>
+                    }
                 </div>
-
             </div>
         </div>
     )

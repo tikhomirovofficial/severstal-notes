@@ -1,6 +1,6 @@
 import './styles/reset.css'
 import './styles/App.css'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect } from 'react'
 import { NotesHeader } from './ui/components/NotesHeader'
 import { Main } from './ui/pages/Main'
 import { SideBar } from './ui/components/SideBar'
@@ -11,8 +11,6 @@ import { setMobileMode, setTabletMode, toggleSideBarOpened } from './app/feature
 import { MOBILE_START_WIDTH, TABLET_START_WIDTH } from './config/settings'
 import { BottomNav } from './ui/components/BottomNav'
 import { addToStorage } from './utils/localStorageManager'
-import { addNote } from './app/features/notes/notesSlice'
-
 
 
 function App() {
@@ -20,6 +18,7 @@ function App() {
   const { sidebarOpened, mobileMode, tabletMode } = useAppSelector(state => state.main)
   const { items } = useAppSelector(state => state.notes)
 
+  const openSideBar = () => dispatch(toggleSideBarOpened())
 
   const optimizedHandleMobileMode = useCallback(() => {
     let calls = 0;
@@ -47,8 +46,6 @@ function App() {
     }
   }, [tabletMode, mobileMode])
 
-
-
   useEffect(() => {
     const handleMobileMode = optimizedHandleMobileMode()
     handleMobileMode()
@@ -58,8 +55,6 @@ function App() {
   useEffect(() => {
     addToStorage("notes", items)
   }, [items])
-
-  const openSideBar = () => dispatch(toggleSideBarOpened())
 
   return (
     <>
@@ -76,9 +71,7 @@ function App() {
         <NotesHeader />
         <Main />
         {tabletMode ? <BottomNav /> : null}
-
       </section>
-
     </>
   )
 }

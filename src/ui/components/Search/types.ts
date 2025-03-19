@@ -1,5 +1,7 @@
-import { HTMLAttributes } from "react";
+import { ChangeEvent } from "react";
 
 export type SearchProps = {
-    placeholder?: string
+    placeholder?: string,
+    value?: string,
+    onChange?: (e: ChangeEvent<HTMLInputElement>) => any
 }

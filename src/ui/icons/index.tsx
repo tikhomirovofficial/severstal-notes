@@ -12,6 +12,8 @@ import addFilePath from '../../assets/icons/addFile.svg'
 import addFolderPath from '../../assets/icons/addFolder.svg'
 import closePath from '../../assets/icons/close.svg'
 import arrowLeftPath from '../../assets/icons/arrow-left.svg'
+import arrowSquarePath from '../../assets/icons/arrowSquare.svg'
+import cryingSmilePath from '../../assets/icons/crying.svg'
 
 export const unfilledFolderIcon = unfilledFolderPath
 export const unfilledFileIcon = unfilledFilePath
@@ -27,3 +29,5 @@ export const addFileIcon = addFilePath
 export const addFolderIcon = addFolderPath
 export const closeIcon = closePath
 export const arrowLeftIcon = arrowLeftPath
+export const arrowSquareIcon = arrowSquarePath
+export const cryingSmileIcon = cryingSmilePath
