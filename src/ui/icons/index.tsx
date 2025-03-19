@@ -10,6 +10,8 @@ import arrowDownPath from '../../assets/icons/arrow-down.svg'
 import sideBarPath from '../../assets/icons/sidebar.svg'
 import addFilePath from '../../assets/icons/addFile.svg'
 import addFolderPath from '../../assets/icons/addFolder.svg'
+import closePath from '../../assets/icons/close.svg'
+import arrowLeftPath from '../../assets/icons/arrow-left.svg'
 
 export const unfilledFolderIcon = unfilledFolderPath
 export const unfilledFileIcon = unfilledFilePath
@@ -23,3 +25,5 @@ export const arrowDownIcon = arrowDownPath
 export const sideBarIcon = sideBarPath
 export const addFileIcon = addFilePath
 export const addFolderIcon = addFolderPath
+export const closeIcon = closePath
+export const arrowLeftIcon = arrowLeftPath

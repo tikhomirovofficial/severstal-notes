@@ -3,10 +3,15 @@
     transition-duration: var(--transition-duration);
     transition-property: width;
     border-right: 1px solid #eaeaea;
-    display: flex;
-    flex-direction: column;
-    padding: 30px 20px;
+    overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    flex-shrink: 0;
+    .sidebarWrapper {
+        padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
     .header {
         display: flex;
         column-gap: 20px;
@@ -18,7 +23,7 @@
         display: flex;
         flex-grow: 1;
         flex-direction: column;
-        margin-top: 30px;
+        margin-top: 20px;
         .explorerHeader {
             display: flex;
             align-items: flex-end;
@@ -40,11 +45,14 @@
         }
         .listWrapper {
             flex-grow: 1;
+            position: relative;
         }
         .list {
+            inset: 0;
+            position: absolute;
             overflow-y: auto;
             flex-grow: 1;
-            max-height: 70vh;
+            max-height: 100%;
             .explorerItem {
             }
             &::-webkit-scrollbar {
