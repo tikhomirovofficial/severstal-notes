@@ -1,0 +1,1 @@
+export const MOBILE_FROM_WIDTH = 1050;
