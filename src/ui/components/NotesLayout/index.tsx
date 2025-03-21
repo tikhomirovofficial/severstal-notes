@@ -1,7 +1,7 @@
 import styles from './noteslayout.module.scss'
 import { NoteCard } from '../NoteCard'
 import { NoteElementMini } from '../NoteCard/mobile'
-import { useAppDispatch, useAppSelector } from '../../../app/hooks'
+import { useAppSelector } from '../../../app/hooks'
 import { cryingSmileIcon } from '../../icons'
 
 export const NotesLayout = () => {
