@@ -1,6 +1,6 @@
 # Severstal Notes App
 
-This application is my testing task for an internship.
+Это приложение - тестовое задание в рамках стажировки.
 
 ![image](https://github.com/user-attachments/assets/36904516-6066-40de-aec5-17f074dc0d5a)
 
