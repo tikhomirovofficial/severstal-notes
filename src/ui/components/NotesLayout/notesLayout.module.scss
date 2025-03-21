@@ -5,6 +5,15 @@
     flex-grow: 1;
     padding-left: 15px;
     max-height: calc(100% - var(--maxHeaderHeight));
+    .empty {
+        flex-grow: 1;
+        margin-top: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        row-gap: 10px;
+    }
     .top {
         display: flex;
         justify-content: space-between;

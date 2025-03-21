@@ -1,7 +1,6 @@
-import React from 'react'
 import styles from './noteWindow.module.scss'
 import { NoteWindowContent } from './content'
-import { useAppDispatch, useAppSelector } from '../../../app/hooks'
+import { useAppSelector } from '../../../app/hooks'
 
 export const NoteWindow = () => {
     const { noteOpened } = useAppSelector(state => state.notes)

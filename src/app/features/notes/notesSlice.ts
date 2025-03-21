@@ -3,6 +3,7 @@ import { Note } from '../../../types/entities'
 import { getNormalizedDate } from '../../../utils/getNormalizedDate'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { getFromStorage } from '../../../utils/localStorageManager'
+import { generateNote } from '../../../utils/generateNote'
 
 type NotesSliceState = {
     items: Note[]
@@ -17,7 +18,7 @@ type EditNotePayload = {
 }
 
 const initialState: NotesSliceState = {
-    items: getFromStorage("notes") || [],
+    items: getFromStorage("notes") || [generateNote()],
     noteOpened: false,
     currentNoteData: {
         id: "",
@@ -28,25 +29,14 @@ const initialState: NotesSliceState = {
     }
 }
 
-
-
 export const notesSlice = createSlice({
     name: 'notes',
     initialState,
     reducers: {
         addNote: (state) => {
-            const date = new Date();
-            const normalizedDate = getNormalizedDate(date)
-
             state.items = [
                 ...state.items,
-                {
-                    id: Date.now().toString(),
-                    name: "Untitled",
-                    created_date: normalizedDate,
-                    updated_date: normalizedDate,
-                    content: ""
-                }
+                generateNote()
             ]
         },
         copyNote: (state, action: PayloadAction<string>) => {
@@ -71,29 +61,34 @@ export const notesSlice = createSlice({
 
             const editingIndex = state.items.findIndex(item => item.id === id);
             const date = new Date();
+            let normalVal = value
+
+            if (key == "name" && !value.length) {
+                normalVal = "Untitled"
+            }
 
             if (editingIndex !== -1) {
-                // Обновляем только тот объект, который необходимо изменить
                 state.items[editingIndex] = {
                     ...state.items[editingIndex],
                     updated_date: getNormalizedDate(date),
-                    [key]: value
+                    [key]: normalVal
                 };
             }
         },
         deleteNote: (state, action: PayloadAction<string>) => {
-            console.log(action.payload);
-
             state.items = state.items.filter(item => item.id !== action.payload)
         },
         toggleWindowOpened: state => {
             state.noteOpened = !state.noteOpened
         },
-        setCurrentNoteData: (state, action: PayloadAction<Note>) => {
-            state.currentNoteData = action.payload
+        setCurrentNoteData: (state, action: PayloadAction<string>) => {
+            state.currentNoteData = state.items.find(item => item.id === action.payload) as Note
+        },
+        resetCurrentNoteData: state => {
+            state.currentNoteData = initialState.currentNoteData
         }
-    },
+    }
 })
 
-export const { addNote, editNote, deleteNote, copyNote, toggleWindowOpened, setCurrentNoteData } = notesSlice.actions
+export const { addNote, editNote, deleteNote, copyNote, resetCurrentNoteData, toggleWindowOpened, setCurrentNoteData } = notesSlice.actions
 export const notesReducer = notesSlice.reducer

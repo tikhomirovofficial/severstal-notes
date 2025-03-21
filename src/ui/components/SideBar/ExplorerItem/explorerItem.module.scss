@@ -8,26 +8,31 @@
     input {
         background-color: transparent;
         width: 100%;
-        max-width: calc(100% - 25px);
+        max-width: calc(100% - 50px);
     }
-    .delete {
+    .btns {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+    }
+    .btn {
         transition:
             0.5s visibility,
             0.5s opacity;
         visibility: hidden;
         opacity: 0;
-        position: absolute;
         aspect-ratio: 1;
         height: 100%;
-        top: 0;
-        right: 0;
+    }
+    .delete {
         img {
             opacity: 0.8;
         }
     }
     &:hover {
         background-color: #f8f8f8;
-        .delete {
+        .btn {
             visibility: visible;
             opacity: 1;
         }
